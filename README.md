@@ -1,4 +1,5 @@
 # AI Toolkit
+#### Author: Bocaletto Luca
 
 Zero-registration, local AI toolkit for offline text summarization, question-answering, audio transcription, and image captioning on Debian/Ubuntu derivatives.
 
