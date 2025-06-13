@@ -1,0 +1,8 @@
+ai_toolkit/
+├── requirements.txt
+├── app.py
+└── tasks/
+    ├── summarizer.py
+    ├── qa.py
+    ├── transcription.py
+    └── image_caption.py
