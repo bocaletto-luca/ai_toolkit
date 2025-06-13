@@ -1,0 +1,6 @@
+# requirements.txt
+transformers         # HuggingFace pipelines
+torch                # PyTorch backend
+sentencepiece        # For certain HF models
+whisper              # OpenAI Whisper local ASR
+Pillow               # image handling
