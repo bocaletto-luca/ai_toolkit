@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Meta Tags -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>AI Toolkit – Local Zero-Registration AI CLI</title>
+  <meta name="description" content="AI Toolkit is a zero-registration, local Python CLI for offline text summarization, Q&A, audio transcription and image captioning on Debian/Ubuntu derivatives.">
+  <meta name="keywords" content="AI CLI, text summarization, question answering, audio transcription, image captioning, Python, offline, local">
+  <meta name="author" content="Bocaletto Luca">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://github.com/bocaletto-luca/ai_toolkit">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI Toolkit – Local Zero-Registration AI CLI">
+  <meta property="og:description" content="Run AI tasks offline from your terminal: text summarization, Q&A, audio transcription and image captioning.">
+  <meta property="og:url" content="https://github.com/bocaletto-luca/ai_toolkit">
+  <meta property="og:site_name" content="AI Toolkit">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AI Toolkit – Local Zero-Registration AI CLI">
+  <meta name="twitter:description" content="Offline Python CLI for summarization, Q&A, transcription & image captioning.">
+
+  <!-- GitHub Markdown Styling -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css"
+        integrity="sha512-1tV2HpYPXDWZ2U8dGBwS3OWg0doP+2hT0f5Sm5aUnRpxYgiK7g+K1/L0N0o+7vL8VtPrTzZgr9wKbI6mJRwrDw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* Reset & base */
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 1rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: #f6f8fa;
+      color: #24292e;
+      line-height: 1.6;
+    }
+    img { max-width: 100%; height: auto; }
+
+    /* Container */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,.05);
+    }
+
+    /* Headings */
+    h1 { margin-top: 0; font-size: 2rem; }
+    h2 { margin-top: 2rem; font-size: 1.5rem; }
+
+    /* Code blocks */
+    pre {
+      background: #f0f0f0;
+      padding: 1rem;
+      overflow-x: auto;
+      border-radius: 4px;
+    }
+    code {
+      background: #f0f0f0;
+      padding: .2rem .4rem;
+      border-radius: 4px;
+      font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+    }
+
+    /* Lists & links */
+    ul, ol { margin-left: 1.2rem; }
+    a { color: #0366d6; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Footer */
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: .9rem;
+      color: #57606a;
+    }
+    footer a { margin: 0 .5rem; color: inherit; }
+  </style>
+</head>
+
+<body>
+  <div class="container markdown-body">
+    <h1>AI Toolkit</h1>
+    <p><em>Zero-registration, local AI toolkit for offline text summarization, question-answering, audio transcription, and image captioning on Debian/Ubuntu derivatives.</em></p>
+
+    <p><strong>License:</strong> MIT &nbsp;|&nbsp; <a href="LICENSE">View LICENSE</a></p>
+
+    <h2>🔍 Features</h2>
+    <ul>
+      <li>Text summarization via HuggingFace T5</li>
+      <li>Question answering with DistilBERT-SQuAD</li>
+      <li>Audio transcription using OpenAI Whisper (local)</li>
+      <li>Image captioning with Salesforce BLIP</li>
+    </ul>
+
+    <h2>📁 Repository Layout</h2>
+    <pre><code>ai_toolkit/
+├── requirements.txt      # Python dependencies
+├── app.py                # CLI entrypoint
+└── tasks/
+    ├── summarizer.py     # summarize(text)
+    ├── qa.py             # answer(question, context)
+    ├── transcription.py  # transcribe(audio_path)
+    └── image_caption.py  # caption_image(image_path)
+</code></pre>
+
+    <h2>🚀 Installation</h2>
+    <pre><code># Update system & install prerequisites
+sudo apt update
+sudo apt install -y python3-venv ffmpeg git
+
+# Clone & set up virtual env
+git clone https://github.com/bocaletto-luca/ai_toolkit.git
+cd ai_toolkit
+python3 -m venv venv
+source venv/bin/activate
+
+# Install Python dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
+</code></pre>
+
+    <h2>🛠️ Usage</h2>
+    <pre><code># Summarize a text file
+python app.py summarize path/to/article.txt
+
+# Question-Answering on a document
+python app.py qa "What is the main topic?" path/to/article.txt
+
+# Transcribe an audio file
+python app.py transcribe path/to/audio.mp3
+
+# Generate a caption for an image
+python app.py caption path/to/photo.jpg
+</code></pre>
+    <p><em>Each command will print the result to standard output.</em></p>
+
+    <h2>💡 Extending</h2>
+    <ul>
+      <li>Wrap with Flask or FastAPI to provide a web interface</li>
+      <li>Deploy models on GPU by installing <code>torch</code> with CUDA support</li>
+      <li>Schedule tasks via <code>cron</code> or <code>systemd</code> timers</li>
+    </ul>
+
+    <h2>🤝 Contributing</h2>
+    <ol>
+      <li>Fork the repository</li>
+      <li>Create a branch (<code>git checkout -b feat/awesome</code>)</li>
+      <li>Commit your changes (<code>git commit -m "feat: add X"</code>)</li>
+      <li>Push (<code>git push origin feat/awesome</code>)</li>
+      <li>Open a Pull Request</li>
+    </ol>
+    <p>Please follow the <a href="CODE_OF_CONDUCT.md">Code of Conduct</a>.</p>
+
+    <h2>👤 Author &amp; Links</h2>
+    <p>Created by <strong>Bocaletto Luca</strong>.</p>
+    <p>Source code on GitHub: <a href="https://github.com/bocaletto-luca/ai_toolkit">github.com/bocaletto-luca/ai_toolkit</a></p>
+
+    <footer>
+      <p>© 2025 Bocaletto Luca</p>
+      <p>
+        <a href="https://bocaletto-luca.github.io">bocaletto-luca.github.io</a> |
+        <a href="https://bocalettoluca.altervista.org">bocalettoluca.altervista.org</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
